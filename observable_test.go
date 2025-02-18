@@ -12,7 +12,6 @@ func TestObserve(t *testing.T) {
 	type args struct {
 		name  string
 		cb    func(int)
-		prev  func(name string, cb func(any)) error
 		pname string
 		pcb   func(int)
 		ncb   func(string)
