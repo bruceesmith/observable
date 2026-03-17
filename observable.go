@@ -36,7 +36,7 @@ var (
 // Observe either registers a new observable, or adds another observer
 // (notification function) to an existing observable
 func Observe[T any](name string, cb func(T)) error {
-	vtype := reflect.TypeOf(cb).In(0)
+	vtype := reflect.TypeFor[func(T)]().In(0)
 	callbacks, existing := observables[name]
 	if !existing {
 		observables[name] = observable{cb}
