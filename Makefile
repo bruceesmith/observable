@@ -25,6 +25,11 @@ audit: test generate
 build: generate
 	go build -a -tags osusergo,netgo -ldflags "-s -X 'github.com/bruceesmith/echidna.BuildDate=$(shell date)' -w -extldflags '-static'" ${main_package_path}
 
+## fix: apply any new Go features / capabilities
+.PHONY: fix
+fix:
+	go fix ./...
+
 ## generate: run all go generate commands
 generate:
 	go generate ./...
